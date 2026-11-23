@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    background-color: #05070e;
+    color: #f1f5f9;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-display {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-mono-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseAura {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes auroraShiftA {
+  0%, 100% {
+    transform: translate3d(-8%, -6%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(10%, 8%, 0) scale(1.15);
+  }
+}
+
+@keyframes auroraShiftB {
+  0%, 100% {
+    transform: translate3d(8%, 6%, 0) scale(1.08);
+  }
+  50% {
+    transform: translate3d(-10%, -8%, 0) scale(0.96);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 6s linear infinite;
+}
+
+.animate-pulse-aura {
+  animation: pulseAura 3.5s ease-in-out infinite;
+}
+
+.animate-aurora-a {
+  animation: auroraShiftA 14s ease-in-out infinite;
+}
+
+.animate-aurora-b {
+  animation: auroraShiftB 16s ease-in-out infinite;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Custom sleek scrollbar for Android / desktop duration list */
+.vex-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.vex-scroll::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.vex-scroll::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.45);
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .animate-pulse-aura,
+  .animate-aurora-a,
+  .animate-aurora-b {
+    animation: none !important;
+  }
+}
